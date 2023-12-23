@@ -1,0 +1,34 @@
+.storebar-main{
+    position: fixed;
+    // background-color: hsl(var(--secondary));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    // height: 50vh;
+    // min-height: 400px;
+    // border: 1px solid rgba(255, 255, 255, 0.3);
+
+    padding: 50px 0px;
+}
+
+.store-bar-link{
+    padding: 0 10px;
+    // border-left: 2px solid transparent;
+    // &:hover{
+    //     border-left: 2px solid hsl(var(--primary));
+    // }
+    
+}
+
+.active-bar-link{
+    padding: 0 10px;
+    color: hsl(var(--primary));
+    // border-left: 2px solid hsl(var(--primary));
+    transition: 0.3s;
+}
