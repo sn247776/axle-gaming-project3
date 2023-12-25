@@ -35,7 +35,7 @@ function StoreBar() {
   const pathname = usePathname();
 
   return (
-    <div className="storebar-main bg-secondary/50">
+    <div className="storebar-main bg-secondary/50 backdrop-blur-sm ">
       {routes.map((route) => (
         <Link
           key={route.href}
