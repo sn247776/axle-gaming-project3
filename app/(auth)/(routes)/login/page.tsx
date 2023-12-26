@@ -31,7 +31,7 @@ function LoginPage() {
             <div className='w-[100px] border'></div>
           </div>
 
-          <div className=' axle-round items-center flex justify-center gap-5 border-primary border p-3 text-primary text-sm'><FcGoogle className="text-2xl" /> <p>Login with Google</p></div>
+          <div className=' items-center flex justify-center gap-5 border-primary border p-3 text-primary text-sm'><FcGoogle className="text-2xl" /> <p>Login with Google</p></div>
 
           <p className='text-center text-sm text-white/60'>If you dont have account please <a className='text-white'>Sing Up</a></p>
         </div>

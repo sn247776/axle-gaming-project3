@@ -64,5 +64,37 @@
 }
 
 .axle-round{
-  border-radius: 0px 0px 15px 0px;
+  clip-path: polygon(0 0, 100% 0, 100% 89%, 95% 100%, 0 100%);
+}
+
+.axle-cut-top{
+  clip-path: polygon(0 0, 90% 0, 100% 11%, 100% 99%, 0 99%);
+}
+
+.profile-level{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 217, 0, 0.85);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.profile-banner{
+  position: relative;
+}
+
+.profile-banner img{
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
 }
