@@ -5,12 +5,12 @@ import UserBar from "@/components/store/userbar/UserBar";
 const ProfileLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <div className="h-full">
+      <div className="h-screen">
         <main className="pl-20">
           <div className="sticky top-0 bg-black z-50">
             <Header />
           </div>
-          <div className="px-3 py-2">{children}</div>
+          <div className="px-3 py-2 max-h-screen  ">{children}</div>
         </main>
       </div>
       <StoreBar />

@@ -71,6 +71,11 @@
   clip-path: polygon(0 0, 90% 0, 100% 11%, 100% 99%, 0 99%);
 }
 
+.axle-cut-top-bottom {
+  clip-path: polygon(16% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 13%);
+}
+
+
 .profile-level{
   position: absolute;
   bottom: 0;

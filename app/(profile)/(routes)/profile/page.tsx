@@ -2,13 +2,19 @@
 import ProfileBar from "@/components/profile/ProfileBar";
 import React, { useState } from "react";
 import '../../../../components/profile/styles/ProfileTabs.scss'
-
+import gameDiscount from '../../../../dummy/gameDiscount.json'
 function ProfilePage() {
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState("games");
 
-  const tabContent:any = {
+  const tabContent: any = {
     games: (
-      <div>Games</div>
+      <div>
+        {gameDiscount.map((game,index)=>(
+          <div className=" bg-orange-300 px-5 py-2 w-fit">
+            {game.name}
+          </div>
+        ))}
+      </div>
     ),
     achievements: (
       <div>
@@ -22,8 +28,8 @@ function ProfilePage() {
     ),
     about: (
       <div>About</div>
-        
-      ),
+
+    ),
   };
 
 
@@ -33,55 +39,57 @@ function ProfilePage() {
 
   return (
     <div>
-      <div className="flex gap-5 overflow-y-hidden">
-        <div className=" h-[100%]">
-        <ProfileBar />
+      <div className="flex gap-5 relative ">
+        <div className=" ">
+          <ProfileBar />
         </div>
 
-        <div className="bg-secondary/50 w-full axle-cut-top relative overflow-y-scroll">
-          <div className="profile-banner">
+        <div className=" w-full relative ">
+          <div className="profile-banner relative axle-cut-top ">
             <img
               src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg"
               alt="profile-banner"
+              className=" max-h-[300px]"
             />
+            
           </div>
           <div>
-            <div>
-              <div className="absolute top-[347px] ">
-                <div className="flex gap-5 font-medium text-white select-none w-[50vw] px-5 pt-4 bg-secondary"
-                style={{clipPath:"polygon(0 0, 94% 0, 100% 100%, 100% 100%, 0 99%)"}}
+            
+            <div className="sticky top-[70px] mt-[-38px]">
+                <div className="flex gap-0 font-medium text-white select-none w-fit px-5  pr-10 bg-gradient-to-r from-black to-transparent"
+                  // style={{ clipPath: "polygon(0 0, 90% 0, 100% 100%, 100% 100%, 0 100%)" }}
                 >
-            <div
-    className={`cursor-pointer transform skew-x-[45deg] border-r border-purple-900 ${activeTab === 'games' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.3rem] tab`}
-    onClick={() => handleTabClick('games')}
-  >
-    <div className="transform -skew-x-6">Games</div>
-  </div>
-  <div
-    className={`cursor-pointer transform skew-x-6 border-r border-purple-900  ${activeTab === 'achievements' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.3rem] tab`}
-    onClick={() => handleTabClick('achievements')}
-  >
-    <div className="transform -skew-x-6">Post</div>
-  </div>
-  <div
-    className={`cursor-pointer transform skew-x-6 border-r border-purple-900 ${activeTab === 'factions' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.3rem] tab`}
-    onClick={() => handleTabClick('factions')}
-  >
-    <div className="transform -skew-x-6">Factions</div>
-  </div>
-  <div
-    className={`cursor-pointer transform skew-x-6 ${activeTab === 'about' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.3rem] tab`}
-    onClick={() => handleTabClick('about')}
-  >
-    <div className="transform -skew-x-6">About</div>
-  </div>
-  </div>
+                  <div
+                    className={`cursor-pointer w-[7rem] items-center justify-center flex transform skew-x-[45deg] border-r px-1 bg-black/50 backdrop-blur-sm border-purple-900 ${activeTab === 'games' ? 'text-primary  border-b-2 pb-2 border-primary' : ''} text-[1.2rem]`}
+                    onClick={() => handleTabClick('games')}
+                  >
+                    <div className="transform -skew-x-[45deg] flex items-center justify-center">Games</div>
+                  </div>
+                  <div
+                    className={`cursor-pointer w-[7rem] justify-center flex transform skew-x-[45deg] border-r px-2 bg-black/50 backdrop-blur-sm border-purple-900  ${activeTab === 'achievements' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.2rem]`}
+                    onClick={() => handleTabClick('achievements')}
+                  >
+                    <div className="transform -skew-x-[45deg] flex items-center justify-center">Post</div>
+                  </div>
+                  <div
+                    className={`cursor-pointer w-[7rem] justify-center flex transform skew-x-[45deg] border-r px-2 bg-black/50 backdrop-blur-sm border-purple-900 ${activeTab === 'factions' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.2rem]`}
+                    onClick={() => handleTabClick('factions')}
+                  >
+                    <div className="transform -skew-x-[45deg] flex items-center justify-center">Factions</div>
+                  </div>
+                  <div
+                    className={`cursor-pointer w-[7rem] justify-center flex transform skew-x-[45deg] bg-black/50 backdrop-blur-sm ${activeTab === 'about' ? 'text-primary font-bold border-b-2 pb-2 border-primary' : ''} text-[1.2rem]`}
+                    onClick={() => handleTabClick('about')}
+                  >
+                    <div className="transform -skew-x-[45deg] flex items-center justify-center">About</div>
+                  </div>
                 </div>
               </div>
-              <hr className="mt-[-2px]" />
-              <div className=" py-4 min-h-[20vh]">
-                {tabContent[activeTab] as any}
-              </div>
+            
+            <hr className="mt-[px]" />
+            <div className="bg-secondary/50 py-4 min-h-[20vh]">
+              {tabContent[activeTab] as any}
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import Badge4 from '@/assets/4.png'
 
 function ProfileBar() {
   return (
-    <div className="w-[30vw] flex flex-col gap-6 sticky top-[90px]" 
+    <div className="w-[30vw] flex flex-col gap-6 sticky top-[70px]" 
     style={{maxHeight:"calc(100vh - 90px)"}}
     >
       <div className="bg-secondary/50 flex flex-col items-center py-4 px-5">
@@ -27,10 +27,15 @@ function ProfileBar() {
         <div>
         <div className=" text-white font-bold text-[1.2rem]">Sagar Nirwal</div> 
         <div className="font-semibold text-gray-500">@Sagar247776</div>
-        <Progress className="my-3 h-3" value={55} />
-
-        <div className="text-xl font-bold text-white/80">12000 XP / 25600</div>
-        
+        <div className=" w-full">
+        <div className=" text-[.7rem] font-thin float-end text-white">12000 XP / 25600</div>
+        <Progress className="my-3 h-3 w-full" value={55} />
+        </div>
+        <div>
+          <div className=" bg-orange-400 w-fit rounded-xl px-1 text-[.8rem] items-center">
+            Maniac
+          </div>
+        </div>
         </div>
 
         </div>
