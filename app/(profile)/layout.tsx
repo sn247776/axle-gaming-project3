@@ -10,7 +10,7 @@ const ProfileLayout = async ({ children }: { children: React.ReactNode }) => {
           <div className="sticky top-0 bg-black z-50">
             <Header />
           </div>
-          <div className="p-3">{children}</div>
+          <div className="px-3 py-2">{children}</div>
         </main>
       </div>
       <StoreBar />
