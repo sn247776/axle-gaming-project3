@@ -12,7 +12,7 @@ const StoreLayout = async ({ children }: { children: React.ReactNode }) => {
           </div>
           <div className="p-3">{children}</div>
         </main>
-        <div className="absolute w-[250px] right-0 top-[75px] bg-red-500">
+        <div className="absolute w-[250px] right-0 top-[75px]">
           <UserBar />
         </div>
       </div>
