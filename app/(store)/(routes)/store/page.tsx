@@ -4,8 +4,13 @@ import React from 'react'
 
 function StorePage() {
   return (
-    <div>
-        <HomeSlider/>
+    <div >
+
+      <div >
+      <HomeSlider/>
+        <div>Hello</div>
+      </div>
+
         <div>
           <HomeGame/>
         </div>

@@ -6,13 +6,13 @@ const StoreLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div className="h-full">
-        <main className="pl-20 pr-[250px]">
+        <main className="pl-20">
           <div className="sticky top-0 bg-black z-50">
             <Header />
           </div>
-          <div className="p-3">{children}</div>
+          <div className="p-3 ">{children}</div>
         </main>
-        <div className="absolute w-[250px] right-0 top-[75px]">
+        <div className="fixed w-[250px] right-1 top-[150px] z-50 bg-black min-h-[100%] border-2">
           <UserBar />
         </div>
       </div>

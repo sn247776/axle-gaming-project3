@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     
-      <body>  <ThemeProvider
+      <body className='container'>  <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem

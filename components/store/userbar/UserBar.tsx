@@ -2,8 +2,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Img123 from "@/assets/123.png"
+import Badge1 from '@/assets/1.png'
+import Badge2 from '@/assets/2.png'
+import Badge3 from '@/assets/3.png'
+import Badge4 from '@/assets/4.png'
 
 import React, { useState } from "react";
+import { Progress } from "@/components/ui/progress";
 
 function UserBar() {
   const [activeTab, setActiveTab] = useState("people");
@@ -28,7 +33,31 @@ function UserBar() {
         <h4 className="text-xl">Messaging</h4>
       </div> */}
 
-      <Image src={Img123} alt="img"/>
+      <div className="p-2 bg-secondary/50">
+        <div className="relative">
+        <img src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg" alt="cover"/>
+        <div className="absolute bottom-2 left-2 bg-secondary/80 p-1 rounded-full">
+        <Avatar className="w-12 h-12">
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        </div>
+        </div>
+
+        <div className="flex items-center flex-col gap-3">
+          <h6 className="text-sm p-2 font-semibold">Lvl 100</h6>
+          {/* <div className="flex justify-center"><p className="bg-primary px-4 rounded-full">Token</p></div>
+          <div className="flex justify-between items-center h-full px-2 select-none pointer-events-none">
+        <Image src={Badge2} alt="bages" width={40} />
+        <Image src={Badge3} alt="bages" width={40}/>
+        <Image src={Badge4} alt="bages" width={40}/>
+        </div> */}
+          {/* <Progress className="my-3 h-3 w-full" value={55} /> */}
+        </div>
+
+      </div>
+
+      {/* <Image src={Img123} alt="img"/> */}
 
       <input className="p-1 w-full my-2" placeholder="Search messages..." />
 
