@@ -1,0 +1,27 @@
+.neon-sticks{
+    color: #bfe2ff;
+    background-color: #b5d0e7;
+} 
+.neon-sticks::before{
+    content:"";
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 50;
+    font-size: 3rem;
+    display: inline-block;
+    cursor: pointer;
+    border: #008cff 0.08em solid;
+    border-radius: 0.25em;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+    height: 103%;
+    text-shadow: 
+    0 0 .10em #FFF7,
+    0 0 .10em var(#95ccfa);
+    box-shadow:
+    inset 0 0 .3em #008cff,
+            0 0 .4em #008cff;     
+}

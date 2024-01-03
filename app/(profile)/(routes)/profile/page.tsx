@@ -2,18 +2,15 @@
 import ProfileBar from "@/components/profile/ProfileBar";
 import React, { useState } from "react";
 import '../../../../components/profile/styles/ProfileTabs.scss'
-import gameDiscount from '../../../../dummy/gameDiscount.json'
+import GameTab from "@/components/profile/ProfileTabs/GameTab";
+
 function ProfilePage() {
   const [activeTab, setActiveTab] = useState("games");
 
   const tabContent: any = {
     games: (
       <div>
-        {gameDiscount.map((game,index)=>(
-          <div className=" bg-orange-300 px-5 py-2 w-fit">
-            {game.name}
-          </div>
-        ))}
+        <GameTab/>
       </div>
     ),
     achievements: (

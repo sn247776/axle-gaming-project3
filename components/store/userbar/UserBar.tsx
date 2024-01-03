@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 
 function UserBar() {
+  const [colaps, setColaps] = useState(true)
   const [activeTab, setActiveTab] = useState("people");
 
   const tabContent: any = {
@@ -23,8 +24,14 @@ function UserBar() {
     setActiveTab(tab);
   };
 
+  const toggleColaps = () => {
+    setColaps((prevColaps) => !prevColaps);
+  };
+
   return (
-    <div>
+    <div 
+    style={{width:colaps ? "300px" : "50px"}}
+    className={ 'h-[90vh] sticky top-[4rem] right-0 bg-slate-500'}>
       {/* <div className="flex justify-around items-center p-2 bg-secondary border-b-2 border-white/50">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
@@ -34,7 +41,11 @@ function UserBar() {
       </div> */}
 
       <div className="p-2 bg-secondary/50">
-        <div className="relative">
+      <button className="text-white p-2" onClick={toggleColaps}>
+        Toggle
+      </button>
+
+      {colaps?(<div className="relative">
         <img src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg" alt="cover"/>
         <div className="absolute bottom-2 left-2 bg-secondary/80 p-1 rounded-full">
         <Avatar className="w-12 h-12">
@@ -42,7 +53,14 @@ function UserBar() {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         </div>
-        </div>
+        </div>):('')}
+      
+      
+      
+
+
+
+        
 
         <div className="flex items-center flex-col gap-3">
           <h6 className="text-sm p-2 font-semibold">Lvl 100</h6>

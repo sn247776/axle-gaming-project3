@@ -1,23 +1,31 @@
 import StoreBar from "@/components/store/StoreBar";
 import Header from "@/components/store/header/Header";
 import UserBar from "@/components/store/userbar/UserBar";
+import './scrollbar.scss'
 
 const StoreLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-      <div className="h-full">
+
+      <div className="h-full max-w-screen  ">
+        <StoreBar />
         <main className="pl-20">
-          <div className="sticky top-0 bg-black z-50">
+         <div className="  flex flex-col w-full ">
+         <div className="sticky top-0 bg-black z-50">
             <Header />
           </div>
-          <div className="p-3 ">{children}</div>
-        </main>
-        <div className="fixed w-[250px] right-1 top-[150px] z-50 bg-black min-h-[100%] border-2">
+          <div className=" flex flex-auto h-full max-w-full  ">
+            <div className="  w-full flex flex-col overflow-x-hidden overflow-y-scroll px-2">
+            {children}
+            </div>
+
+          {/* <div className=" w-[500px] bg-[#9d3737] top-0 right-0 min-h-[100%] border-2"> */}
           <UserBar />
-        </div>
+        {/* </div> */}
+          </div>    
+          </div>      
+        </main>
+        
       </div>
-      <StoreBar />
-    </div>
   );
 };
 

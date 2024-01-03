@@ -9,11 +9,11 @@ import DummyData from "@/dummy/DummyData";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import "./styles/HomeSlider.scss"
+import "./styles/GamesSlider.scss"
 import {Swiper as swiper} from "swiper";
 // import swiper from "swiper";
 
-export default function HomeSlider() {
+export default function GamesSlider() {
   const swiperRef: any = useRef(null);
   const paginationRef:any = useRef(null);
   const [swiperIns,setSwiperIns] = useState<swiper | null >();
@@ -37,7 +37,7 @@ export default function HomeSlider() {
     // swiperRef.pagination.update()
   },[swiperRef])
   return (
-    <div className="relative">
+    <div className="relative ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -47,14 +47,14 @@ export default function HomeSlider() {
         }}
         onSwiper={async (swiper) => {
           setSwiperIns(swiper);
-          swiperRef.current = swiper
+          // swiperRef.current = swiper
           // if (swiper){
           //   // swiper.navigation.update()
           //   swiper.pagination.init()
           // swiper.pagination.update()}
           
         }}
-        className="home-slider-main"
+        className="game-slider-main"
         pagination={{
           el: paginationRef.current,
           clickable: true,
@@ -67,8 +67,8 @@ export default function HomeSlider() {
         
       >
         {DummyData.map((slide, index) => (
-          <SwiperSlide className="home-slider" key={slide._id}>
-            <div className="home-slide-text">
+          <SwiperSlide className="game-slider" key={slide._id}>
+            <div className="game-slide-text">
               <h2 className="text-6xl font-bold">{slide.title}</h2>
               <p>{slide.description}</p>
               <div>
@@ -79,7 +79,7 @@ export default function HomeSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="home-slider-pagination">
+      <div className="game-slider-pagination">
       <div className="bg-white/25 backdrop-blur-sm flex gap-2 items-center p-1 rounded-full">
         <div onClick={handlePrev} className="bg-primary/40 rounded-full p-1 hover:bg-primary cursor-pointer duration-100">
           <ChevronLeft />
