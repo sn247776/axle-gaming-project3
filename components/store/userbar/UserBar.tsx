@@ -1,21 +1,40 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import Img123 from "@/assets/123.png"
-import Badge1 from '@/assets/1.png'
-import Badge2 from '@/assets/2.png'
-import Badge3 from '@/assets/3.png'
-import Badge4 from '@/assets/4.png'
-
+import Img123 from "@/assets/123.png";
+import Badge1 from "@/assets/1.png";
+import Badge2 from "@/assets/2.png";
+import Badge3 from "@/assets/3.png";
+import Badge4 from "@/assets/4.png";
+import { PeopleData } from "@/dummy/PeopleData";
 import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 
 function UserBar() {
-  const [colaps, setColaps] = useState(true)
+  const [colaps, setColaps] = useState(true);
   const [activeTab, setActiveTab] = useState("people");
 
   const tabContent: any = {
-    people: <div>people</div>,
+    people: (
+      <div>
+        {PeopleData.map((person) => (
+          <div
+            key={person.id}
+            className="flex gap-2 items-center border-b p-2 hover:bg-secondary/50 cursor-pointer"
+          >
+            <Avatar className="w-10 h-10">
+              <AvatarImage src={person.image} />
+              <AvatarFallback>{person.name[0]}</AvatarFallback>
+            </Avatar>
+
+            <div>
+              <p>{person.name}</p>
+              <p className="text-xs font-semibold">{person?.username}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    ),
     group: <div>group</div>,
     chat: <div>chat</div>,
   };
@@ -29,9 +48,12 @@ function UserBar() {
   };
 
   return (
-    <div 
-    style={{width:colaps ? "300px" : "50px"}}
-    className={ 'h-[90vh] sticky top-[4rem] right-0 bg-slate-500'}>
+    <div
+      style={{ width: colaps ? "300px" : "50px" }}
+      className={
+        "max-h-[90vh] sticky top-[4rem] right-0 bg-slate-500 duration-200"
+      }
+    >
       {/* <div className="flex justify-around items-center p-2 bg-secondary border-b-2 border-white/50">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
@@ -41,26 +63,26 @@ function UserBar() {
       </div> */}
 
       <div className="p-2 bg-secondary/50">
-      <button className="text-white p-2" onClick={toggleColaps}>
-        Toggle
-      </button>
+        <button className="text-white p-2" onClick={toggleColaps}>
+          Toggle
+        </button>
 
-      {colaps?(<div className="relative">
-        <img src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg" alt="cover"/>
-        <div className="absolute bottom-2 left-2 bg-secondary/80 p-1 rounded-full">
-        <Avatar className="w-12 h-12">
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-        </div>
-        </div>):('')}
-      
-      
-      
-
-
-
-        
+        {colaps ? (
+          <div className="relative">
+            <img
+              src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg"
+              alt="cover"
+            />
+            <div className="absolute bottom-2 left-2 bg-secondary/80 p-1 rounded-full">
+              <Avatar className="w-12 h-12">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
 
         <div className="flex items-center flex-col gap-3">
           <h6 className="text-sm p-2 font-semibold">Lvl 100</h6>
@@ -72,7 +94,6 @@ function UserBar() {
         </div> */}
           {/* <Progress className="my-3 h-3 w-full" value={55} /> */}
         </div>
-
       </div>
 
       {/* <Image src={Img123} alt="img"/> */}
@@ -110,8 +131,39 @@ function UserBar() {
         </div>
 
         <hr className="mt-[px]" />
-        <div className="py-4">
+        <div className="py-4 overflow-scroll h-[55vh]">
           {tabContent[activeTab] as any}
+        </div>
+
+        <div className=" absolute bottom-0 z-10 right-[300px] bg-slate-500 ">
+          <div className="relative w-[500px] h-[600px] rounded p-4">
+            <div className="absolute bottom-0 w-full right-0 px-4">
+              <textarea
+                rows={3}
+                placeholder="write your message"
+                className="w-full p-2"
+              />
+            </div>
+
+            <div>
+              <div className=" flex justify-between border-b p-1">
+
+                <div className="flex gap-2 items-center">
+                <Avatar className="w-10 h-10">
+                  <AvatarImage src={""} />
+                  <AvatarFallback>SN</AvatarFallback>
+                </Avatar>
+
+                <div>
+                  <p>Sagar Nirwal</p>
+                  <p className="text-xs font-semibold">sn247776</p>
+                </div>
+                </div>
+
+                <div>Close</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
