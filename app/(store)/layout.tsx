@@ -14,7 +14,7 @@ const StoreLayout = async ({ children }: { children: React.ReactNode }) => {
             <Header />
           </div>
           <div className=" flex flex-auto h-full max-w-full  ">
-            <div className="  w-full flex flex-col overflow-x-hidden overflow-y-scroll px-2">
+            <div className=" z-0  w-full flex flex-col overflow-x-hidden overflow-y-scroll px-2">
             {children}
             </div>
 

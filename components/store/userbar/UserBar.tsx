@@ -9,9 +9,11 @@ import Badge4 from "@/assets/4.png";
 import { PeopleData } from "@/dummy/PeopleData";
 import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
-
+import { HiMenuAlt3 } from "react-icons/hi";
+import { MdClose } from "react-icons/md";
 function UserBar() {
-  const [colaps, setColaps] = useState(true);
+  const [isBarCollapsed, setIsBarCollapsed] = useState(false);
+  const [isMessageBar, setIsMessageBar] = useState(false);
   const [activeTab, setActiveTab] = useState("people");
 
   const tabContent: any = {
@@ -19,6 +21,7 @@ function UserBar() {
       <div>
         {PeopleData.map((person) => (
           <div
+          onClick={() => setIsMessageBar(true)}
             key={person.id}
             className="flex gap-2 items-center border-b p-2 hover:bg-secondary/50 cursor-pointer"
           >
@@ -44,14 +47,14 @@ function UserBar() {
   };
 
   const toggleColaps = () => {
-    setColaps((prevColaps) => !prevColaps);
+    setIsBarCollapsed((prevColaps) => !prevColaps);
   };
 
   return (
     <div
-      style={{ width: colaps ? "300px" : "50px" }}
+      style={{ width: isBarCollapsed ? "55px" : "300px" }}
       className={
-        "max-h-[90vh] sticky top-[4rem] right-0 bg-slate-500 duration-200"
+        " max-h-[90vh] sticky top-[4rem] right-0 bg-slate-500 duration-200"
       }
     >
       {/* <div className="flex justify-around items-center p-2 bg-secondary border-b-2 border-white/50">
@@ -63,26 +66,25 @@ function UserBar() {
       </div> */}
 
       <div className="p-2 bg-secondary/50">
-        <button className="text-white p-2" onClick={toggleColaps}>
-          Toggle
-        </button>
+        <div className="text-white text-2xl p-2 flex justify-end cursor-pointer" >
+        <HiMenuAlt3 onClick={toggleColaps}/>
+        </div>
 
-        {colaps ? (
-          <div className="relative">
-            <img
-              src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg"
-              alt="cover"
-            />
-            <div className="absolute bottom-2 left-2 bg-secondary/80 p-1 rounded-full">
-              <Avatar className="w-12 h-12">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
+   
+        <div className={`${isBarCollapsed ? '':' '} relative w-full`}>
+          <img
+            className={`${isBarCollapsed ? 'hidden':' '} transition-all duration-300 ease-in`}
+            src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg"
+            alt="cover"
+          />
+          <div className={` ${isBarCollapsed ? 'top-0 -left-[5px]':' bottom-1'} w-12 h-12 items-center  absolute  left-2 bg-secondary/80 p-1 rounded-full transition-all ease-in-out delay-300 duration-400`}>
+            <Avatar className=" w-full h-full">
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </div>
-        ) : (
-          ""
-        )}
+        </div>
+      
 
         <div className="flex items-center flex-col gap-3">
           <h6 className="text-sm p-2 font-semibold">Lvl 100</h6>
@@ -101,8 +103,9 @@ function UserBar() {
       <input className="p-1 w-full my-2" placeholder="Search messages..." />
 
       <div>
-        <div>
-          <div className=" flex gap-0 font-medium text-white select-none w-fit px-5  pr-10 bg-gradient-to-r from-black to-transparent">
+
+        {!isBarCollapsed ? (<div>
+          <div className=" relative flex gap-0 font-medium text-white select-none w-fit px-5  pr-10 bg-gradient-to-r from-black to-transparent">
             <div
               className={`cursor-pointer justify-center flex transform skew-x-[45deg] border-r px-2 bg-black/50 backdrop-blur-sm border-purple-900 ${
                 activeTab === "people"
@@ -128,14 +131,17 @@ function UserBar() {
               </div>
             </div>
           </div>
-        </div>
+        </div>):null}
+        
 
         <hr className="mt-[px]" />
         <div className="py-4 overflow-scroll h-[55vh]">
           {tabContent[activeTab] as any}
         </div>
 
-        <div className=" absolute bottom-0 z-10 right-[300px] bg-slate-500 ">
+
+        {
+          isMessageBar ? (<div id="msg-container" className=" absolute bottom-0 z-20 right-[105%] duration-200 bg-green-500 ">
           <div className="relative w-[500px] h-[600px] rounded p-4">
             <div className="absolute bottom-0 w-full right-0 px-4">
               <textarea
@@ -160,11 +166,22 @@ function UserBar() {
                 </div>
                 </div>
 
-                <div>Close</div>
+            
+
+                <div className="text-3xl cursor-pointer" onClick={() => setIsMessageBar(false)}><MdClose  /></div>
               </div>
+
+              <div className="h-[435px] overflow-scroll">
+
+                Messages
+
+                </div>
             </div>
           </div>
-        </div>
+        </div>):null
+        }
+
+        
       </div>
     </div>
   );
