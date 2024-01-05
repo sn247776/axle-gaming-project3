@@ -2,8 +2,8 @@ import React from 'react'
 
 function GameTab() {
   return (
-    <div>
-            <div className=' grid grid-cols-2 pt-5 gap-4'>
+    <div className=' flex  justify-center'>
+            <div className=' grid grid-cols-2 pt-5 gap-10'>
       {
         games.map((game,index)=>(
           <div key={index}
@@ -13,7 +13,7 @@ function GameTab() {
                  className=' w-[90%] h-[90%] top-0 left-0 '
                  src={game.image}
                 />
-                <div className=' absolute left-0 bottom-5 z-10 h-[50%] w-[90%] bg-gradient-to-t from-white to-transparent'/>
+                <div className=' right-auto absolute left-0 bottom-5 z-10 h-[50%] w-[90%] bg-gradient-to-t from-white to-transparent'/>
                 
             <div
              style={{WebkitClipPath:"polygon(88% 61%, 87% 0, 95% 0, 100% 5%, 100% 92%, 91% 100%, 5% 100%, 0 96%, 0 61%)"}}
@@ -38,7 +38,7 @@ function GameTab() {
               <div className=' flex gap-1 flex-wrap w-[85%]'>
                 {
                   game.genre.map((genre,gi)=>(
-                    <div className=' rounded-xl bg-purple-500 w-fit px-2 h-[1.0rem] text-[.6rem]'>
+                    <div key={gi} className=' rounded-xl bg-purple-500 w-fit px-2 h-[1.0rem] text-[.6rem]'>
                       {genre}
                     </div>
                   ))

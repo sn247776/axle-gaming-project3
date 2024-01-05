@@ -40,7 +40,7 @@ function Games() {
               <div className=' flex gap-1 flex-wrap w-[85%]'>
                 {
                   game.genre.map((genre,gi)=>(
-                    <div className=' rounded-xl bg-purple-500 w-fit px-2 h-[1.0rem] text-[.6rem]'>
+                    <div key={gi} className=' rounded-xl bg-purple-500 w-fit px-2 h-[1.0rem] text-[.6rem]'>
                       {genre}
                     </div>
                   ))

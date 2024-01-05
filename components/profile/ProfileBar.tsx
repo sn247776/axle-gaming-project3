@@ -6,6 +6,7 @@ import Badge1 from '@/assets/1.png'
 import Badge2 from '@/assets/2.png'
 import Badge3 from '@/assets/3.png'
 import Badge4 from '@/assets/4.png'
+import ExpBar from "@/utilities/expBar";
 
 function ProfileBar() {
   return (
@@ -24,15 +25,15 @@ function ProfileBar() {
             45
         </div>
         </div>
-        <div>
+        <div className=" w-full">
         <div className=" text-white font-bold text-[1.2rem]">Sagar Nirwal</div> 
         <div className="font-semibold text-gray-500">@Sagar247776</div>
-        <div className=" w-full">
-        <div className=" text-[.7rem] font-thin float-end text-white">12000 XP / 25600</div>
-        <Progress className="my-3 h-3 w-full" value={55} />
+        <div className=" w-full space-y-1 flex flex-col">
+        <div className=" text-[.7rem] ml-auto mr-0 float-end text-white">12000 XP / 25600</div>
+        <ExpBar percent={35} width={"100%"} height={"10px"} barWidth="15px" />
         </div>
-        <div>
-          <div className=" bg-orange-400 w-fit rounded-xl px-1 text-[.8rem] items-center">
+        <div className=" mt-5">
+          <div className=" mt-5 bg-orange-400 w-fit rounded-xl px-1 text-[.8rem] items-center">
             Maniac
           </div>
         </div>
