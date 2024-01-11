@@ -8,10 +8,12 @@ const StoreLayout = async ({ children }: { children: React.ReactNode }) => {
 
       <div className="h-full max-w-screen  ">
         <StoreBar />
-        
-        <main className="pl-20">
+        <div className="sticky  top-0 bg-black z-50 w-full left-0">
+              <Header />
+            </div>
+        <main className="container">
          <div className="  flex flex-col w-full ">
-         
+
           <div className=" flex flex-auto h-full max-w-full  ">
             <div className=" z-0  w-full flex flex-col overflow-x-hidden overflow-y-scroll px-2">
             {children}
