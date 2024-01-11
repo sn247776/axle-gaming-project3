@@ -19,7 +19,7 @@ type BarStyleType = {
     backgroundSize: string,
     backgroundPosition: string,
 }
-const ExpBar = ({percent = 0,width = "20px", height = "10px", barWidth = `10px`, barHeight= `10px`, color = `#898989`, gradient = `linear-gradient(0.25turn, #537eff, #b619ff, #ee00ff)`, halfed = false}: Props) => {
+const ExpBar = ({percent = 0,width = "100%", height = "10px", barWidth = `10px`, barHeight= `10px`, color = `#898989`, gradient = `linear-gradient(0.25turn, #537eff, #b619ff, #ee00ff)`, halfed = false}: Props) => {
   const count = percent /( halfed ? 20 : 10)
 
   const [barStyle,setBarStyle] = useState<BarStyleType[]>([])

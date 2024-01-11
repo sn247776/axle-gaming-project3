@@ -1,6 +1,8 @@
 import HomeSlider from '@/components/sliders/HomeSlider'
 import HomeGame from '@/components/sliders/HomeGame'
 import React from 'react'
+import EventSlider from '@/components/sliders/EventSlider'
+
 
 
 function StorePage() {
@@ -15,7 +17,7 @@ function StorePage() {
 
         <div>
           <HomeGame/>
-          <HomeGame/>
+          <EventSlider/>
           <HomeGame/>
           <HomeGame/>
         </div>

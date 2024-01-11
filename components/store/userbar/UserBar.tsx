@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
+import ExpBar from "@/utilities/expBar";
 function UserBar() {
   const [isBarCollapsed, setIsBarCollapsed] = useState(false);
   const [isMessageBar, setIsMessageBar] = useState(false);
@@ -46,15 +47,15 @@ function UserBar() {
     setActiveTab(tab);
   };
 
-  const toggleColaps = () => {
+  const toggleColaps = () => {  
     setIsBarCollapsed((prevColaps) => !prevColaps);
   };
 
   return (
     <div
-      style={{ width: isBarCollapsed ? "55px" : "300px" }}
+      // style={{ width: isBarCollapsed ? "55px" : "300px" }}
       className={
-        " max-h-[90vh] sticky top-[4rem] right-0 bg-slate-500 duration-200"
+        ` ${isBarCollapsed ? ' w-[3.4375rem] ':' w-[18.75rem] '} overflow-hidden max-h-[89vh] flex flex-col justify-between sticky top-[4rem] right-0 bg-secondary/50 backdrop-blur-sm duration-200 `
       }
     >
       {/* <div className="flex justify-around items-center p-2 bg-secondary border-b-2 border-white/50">
@@ -65,29 +66,41 @@ function UserBar() {
         <h4 className="text-xl">Messaging</h4>
       </div> */}
 
-      <div className="p-2 bg-secondary/50">
-        <div className="text-white text-2xl p-2 flex justify-end cursor-pointer" >
-        <HiMenuAlt3 onClick={toggleColaps}/>
+      <div className="p-2 bg-secondary/50 w-full flex flex-col">
+        <div className={`absolute z-20 text-white text-2xl p-2 flex self-end cursor-pointer size-fit rounded-full transition-all ease-in-out duration-500 ${!isBarCollapsed  ? ` bg-slate-500 right-1 ` : `  ` } `} >
+        <HiMenuAlt3 onClick={toggleColaps} />
         </div>
 
    
-        <div className={`${isBarCollapsed ? '':' '} relative w-full`}>
+        <div className={`${isBarCollapsed ? '':' '} relative w-full `}>
           <img
-            className={`${isBarCollapsed ? 'hidden':' '} transition-all duration-300 ease-in`}
+            className={`${isBarCollapsed ? 'hidden':' '} transition-all duration-500 ease-in`}
             src="https://res.cloudinary.com/dd10xtpwd/image/upload/v1701239612/games/fyfhmcefuwgjljh0jtce.jpg"
             alt="cover"
           />
-          <div className={` ${isBarCollapsed ? 'top-0 -left-[5px]':' bottom-1'} w-12 h-12 items-center  absolute  left-2 bg-secondary/80 p-1 rounded-full transition-all ease-in-out delay-300 duration-400`}>
-            <Avatar className=" w-full h-full">
+          <div className={` flex w-full justify-end items-end`}>
+          <div className={` ${isBarCollapsed ? 'top-0 -left-[5px]':' bottom-[] left-2 '}  w-fit h-fit items-center absolute flex flex-col`}>
+          <div className={`  w-fit h-fit bg-secondary/80 p-1 rounded-full transition-all ease-in-out delay-300 duration-400`}>
+            <Avatar className="  w-12 h-12">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </div>
+          <div className={` ${isBarCollapsed ? ' ':' px-1'} mt-1 text-sm w-fit  font-semibold bg-[#35283d] rounded-lg text-center justify-center flex`}>Lvl 100</div>
+          </div>
+          <div className={` ${isBarCollapsed ? ' hidden ':' '} flex flex-col w-full `}>
+          <div className=" text-[.6rem] ml-auto mr-0 float-end text-white">12000 XP / 25600</div>
+          <div className={` \ mt-1  w-[9rem] mb-1 -mr-1 ml-auto justify-center flex items-center`}>
+            <ExpBar percent={45} />
+          </div>
+          </div>
+          </div>
+          
         </div>
       
 
         <div className="flex items-center flex-col gap-3">
-          <h6 className="text-sm p-2 font-semibold">Lvl 100</h6>
+         
           {/* <div className="flex justify-center"><p className="bg-primary px-4 rounded-full">Token</p></div>
           <div className="flex justify-between items-center h-full px-2 select-none pointer-events-none">
         <Image src={Badge2} alt="bages" width={40} />
@@ -100,11 +113,11 @@ function UserBar() {
 
       {/* <Image src={Img123} alt="img"/> */}
 
-      <input className="p-1 w-full my-2" placeholder="Search messages..." />
 
       <div>
 
         {!isBarCollapsed ? (<div>
+          <input className="p-1 w-full my-2" placeholder="Search messages..." />
           <div className=" relative flex gap-0 font-medium text-white select-none w-fit px-5  pr-10 bg-gradient-to-r from-black to-transparent">
             <div
               className={`cursor-pointer justify-center flex transform skew-x-[45deg] border-r px-2 bg-black/50 backdrop-blur-sm border-purple-900 ${
@@ -159,7 +172,6 @@ function UserBar() {
                   <AvatarImage src={""} />
                   <AvatarFallback>SN</AvatarFallback>
                 </Avatar>
-
                 <div>
                   <p>Sagar Nirwal</p>
                   <p className="text-xs font-semibold">sn247776</p>

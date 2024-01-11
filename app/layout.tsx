@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/global/theme-provider'
+import Header from '@/components/store/header/Header'
 
 
 
@@ -22,7 +23,10 @@ export default function RootLayout({
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
-          >{children} </ThemeProvider></body>
+          ><div className="sticky  top-0 bg-black z-50 w-full">
+          <Header />
+      </div>
+            {children} </ThemeProvider></body>
     </html>
   )
 }
