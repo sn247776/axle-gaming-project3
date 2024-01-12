@@ -2,8 +2,21 @@ import HomeSlider from "@/components/sliders/HomeSlider"
 import LineChart from '@/components/Charts/LineChart'
 import { FaDiscord, FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
+import gameData from '../../../../../dummy/gameData.json'
+import { BackendURL } from "@/url"
 
-function GamePage() {
+
+interface IParams {
+  gameid?: string;
+}
+async function GamePage({ params }: { params: IParams }) {
+  const response = await fetch(`${BackendURL}/api/game/get/${params.gameid}`, {
+    cache: "no-cache",
+  });
+
+  const gameData = await response.json();
+  const game = gameData.game[0];
+  console.log(gameData)
     return (
       <div>
         <div className='axle-cut-top-bottom'>

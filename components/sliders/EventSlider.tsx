@@ -1,8 +1,9 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import events from '../../dummy/events.json'
 import { FaRegUser } from "react-icons/fa"
+import {Swiper as swiper} from "swiper";
 
 type Props = {}
 
@@ -13,26 +14,31 @@ const EventSlider = (props: Props) => {
 // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 // console.log(diffTime + " milliseconds");
 // console.log(diffDays + " days");
+  const [swiperIns,setSwiperIns] = useState<swiper | null >();
   const currDate = Date.now()
   return (
-    <Swiper
+    <div>
+      <Swiper
         centerInsufficientSlides={true}
         // centeredSlides={true}
       spaceBetween={50}
-      breakpoints={{
-        400: {
-          slidesPerView:1,
-        },
-        664: {
-          slidesPerView: 2,
-        },
-        1145: {
-          slidesPerView: 3,
-        },
-      }}
-      
+      // breakpoints={{
+      //   400: {
+      //     slidesPerView:1,
+      //   },
+      //   664: {
+      //     slidesPerView: 2,
+      //   },
+      //   1145: {
+      //     slidesPerView: 3,
+      //   },
+      // }}
+      slidesPerView={3}
       onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => {
+        setSwiperIns(swiper)
+        swiperIns?.update()
+      }}
     >
       
       {events.map((event,index) =>(
@@ -89,6 +95,7 @@ const EventSlider = (props: Props) => {
         }
       
     </Swiper>
+    </div>
   )
 }
 

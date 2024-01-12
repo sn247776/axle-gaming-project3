@@ -12,28 +12,28 @@ const GlobalHooks = () => {
 
 
 
-  const notAllowedRedirect = "/signin";
+  const notAllowedRedirect = "/login";
   const notAllowedUrls = ["/profile", "/friends", "/settings"];
   
   // URLs not Allowed after Login
   const notAllowedRedirectLogin = "/store";
-  const isNotAllowedLogin = ["/signin", "/signup"];
+  const isNotAllowedLogin = ["/login", "/signup"];
   
-  // useEffect(() => {
-  //   const isLoggedIn = localStorage.getItem("authToken");
-  //   const isNotAllowed = notAllowedUrls.includes(pathname);
-  //   const isLoginNotAllowed = isNotAllowedLogin.includes(pathname);
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("authToken");
+    const isNotAllowed = notAllowedUrls.includes(pathname);
+    const isLoginNotAllowed = isNotAllowedLogin.includes(pathname);
   
-  //   if (!isLoggedIn && isNotAllowed) {
-  //     navigate.push(notAllowedRedirect);
-  //     toast.error("Access denied. Please login first.");
-  //   }
+    if (!isLoggedIn && isNotAllowed) {
+      navigate.push(notAllowedRedirect);
+      toast.error("Access denied. Please login first.");
+    }
   
-  //   if (isLoggedIn && isLoginNotAllowed) {
-  //     navigate.push(notAllowedRedirectLogin);
-  //     toast.error("Access denied.");
-  //   }
-  // }, [pathname, navigate]);
+    if (isLoggedIn && isLoginNotAllowed) {
+      navigate.push(notAllowedRedirectLogin);
+      toast.error("Access denied.");
+    }
+  }, [pathname, navigate]);
 
 
   

@@ -2,12 +2,17 @@
 import { Swiper, SwiperSlide } from "swiper/react"
 import gameDiscount from '../../dummy/gameDiscount.json'
 import './styles/HomeGame.scss'
+import { useState } from "react"
+import {Swiper as swiper} from "swiper";
+
 const HomeGame = ()=>{
+  const [swiperIns,setSwiperIns] = useState<swiper | null >();
     return(
-        <Swiper
+        <div>
+          <Swiper
         centerInsufficientSlides={true}
         centeredSlides={true}
-      spaceBetween={50}
+      spaceBetween={20}
       breakpoints={{
         650: {
           slidesPerView:1,
@@ -21,7 +26,10 @@ const HomeGame = ()=>{
       }}
       
       onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => {
+        setSwiperIns(swiper)
+        swiperIns?.update()
+      }}
     >
       
       {gameDiscount.map((game,index) =>(
@@ -68,6 +76,7 @@ const HomeGame = ()=>{
         }
       
     </Swiper>
+        </div>
     )
 }
 

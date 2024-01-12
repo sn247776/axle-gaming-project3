@@ -2,10 +2,21 @@ import React from 'react'
 import games from '../../../../dummy/games.json'
 import './style.scss'
 import Link from 'next/link'
-import gameData from '../../../../dummy/gameData.json'
+import { BackendURL } from '@/url';
 
-function Games() {
-  const game = gameData.
+async function Games({searchParams}:any) {
+
+  const pageNumber = typeof searchParams.page === 'string' ? Number(searchParams.page): 1;
+  const search = typeof searchParams.search === 'string' ? searchParams.search: "";
+  
+  
+    const res = await fetch(`${BackendURL}/api/game/getall?pageSize=10`, {
+      cache: 'no-cache'
+    })
+  
+    const gamesData: any = await res.json()
+    console.log(gamesData)
+    
   return (
     <div>
     <div className=' grid grid-cols-3 gap-y-10 pt-5 gap-x-4'>

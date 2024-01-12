@@ -55,7 +55,7 @@ function UserBar() {
     <div
       // style={{ width: isBarCollapsed ? "55px" : "300px" }}
       className={
-        ` ${isBarCollapsed ? ' w-[3.4375rem] ':' w-[18.75rem] '} overflow-hidden max-h-[89vh] flex flex-col justify-between sticky top-[4rem] right-0 bg-secondary/50 backdrop-blur-sm duration-200 `
+        ` ${isBarCollapsed ? ' w-[3.4375rem] ':' w-[18.75rem] '} h-[90%] flex flex-col justify-between sticky top-[4rem] right-[1%] bg-secondary/50 backdrop-blur-sm duration-200 `
       }
     >
       {/* <div className="flex justify-around items-center p-2 bg-secondary border-b-2 border-white/50">

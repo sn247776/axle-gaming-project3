@@ -15,7 +15,7 @@ function StorePage() {
         {/* <div>Hello</div>
       </div> */}
 
-        <div>
+        <div className='flex flex-col w-full'>
           <HomeGame/>
           <EventSlider/>
           <HomeGame/>

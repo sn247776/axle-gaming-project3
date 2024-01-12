@@ -125,7 +125,7 @@ function LoginPage() {
 
           <p className="text-center text-sm text-white/60">
             If you dont have account please{" "}
-            <a className="text-white">Sing Up</a>
+            <Link href={'/signup'} className="text-white">Sign Up</Link>
           </p>
         </form>
       </div>

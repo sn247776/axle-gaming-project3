@@ -37,7 +37,7 @@ export default function HomeSlider() {
     // swiperRef.pagination.update()
   },[swiperRef])
   return (
-    <div className="relative">
+    <div className="relative w-full ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
