@@ -6,7 +6,7 @@ import Badge1 from '@/assets/1.png'
 import Badge2 from '@/assets/2.png'
 import Badge3 from '@/assets/3.png'
 import Badge4 from '@/assets/4.png'
-import ExpBar from "@/utilities/expBar";
+import ExpBar from "@/utilities/expBar/expBar";
 
 function ProfileBar() {
   return (

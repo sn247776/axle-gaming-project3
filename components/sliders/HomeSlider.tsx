@@ -11,11 +11,29 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import "./styles/HomeSlider.scss"
 import {Swiper as swiper} from "swiper";
+import axios from "axios";
 // import swiper from "swiper";
 
 export default function HomeSlider() {
   const swiperRef: any = useRef(null);
   const paginationRef:any = useRef(null);
+  const [slideData, setSlideData]:any = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://kind-pear-puffer-tie.cyclic.cloud/api/slide/getall');
+        setSlideData(response.data);
+      } catch (error) {
+       
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(slideData)
+
   const [swiperIns,setSwiperIns] = useState<swiper | null >();
   const paginationStyle:any = {
     '--swiper-pagination-color': '#6D28D9',
@@ -66,18 +84,21 @@ export default function HomeSlider() {
         }}
         
       >
-        {DummyData.map((slide, index) => (
-          <SwiperSlide className="home-slider" key={slide._id}>
-            <div className="home-slide-text">
-              <h2 className="text-6xl font-bold">{slide.title}</h2>
-              <p>{slide.description}</p>
-              <div>
-                <Button className="text-base px-5 py-3">PLAY NOW</Button>
-              </div>
-            </div>
-            <img src={slide.poster} alt="slide" />
-          </SwiperSlide>
-        ))}
+{slideData &&
+          slideData.slides.map((slideSet:any, setIndex:any) =>
+            slideSet.slides.map((slide:any, index:any) => (
+              <SwiperSlide className="home-slider" key={slide._id}>
+                <div className="home-slide-text">
+                  <h2 className="text-6xl font-bold">{slide.title}</h2>
+                  <p>{slide.description}</p>
+                  <div>
+                    <Button className="text-base px-5 py-3">PLAY NOW</Button>
+                  </div>
+                </div>
+                <img src={slide.media.type.url} alt={`Slide ${index}`} />
+              </SwiperSlide>
+            ))
+          )}
       </Swiper>
       <div className="home-slider-pagination">
       <div className="bg-white/25 backdrop-blur-sm flex gap-2 items-center p-1 rounded-full">

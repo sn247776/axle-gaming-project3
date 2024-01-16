@@ -19,10 +19,10 @@ const routes = [
     color: "text-violet-500",
   },
   {
-    label: "Friends",
+    label: "Community",
     icon: Users,
     color: "text-pink-700",
-    href: "/friends",
+    href: "/community",
   },
   {
     label: "Setting",

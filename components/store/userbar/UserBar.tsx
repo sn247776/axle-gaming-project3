@@ -11,7 +11,7 @@ import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
-import ExpBar from "@/utilities/expBar";
+import ExpBar from "@/utilities/expBar/expBar";
 function UserBar() {
   const [isBarCollapsed, setIsBarCollapsed] = useState(false);
   const [isMessageBar, setIsMessageBar] = useState(false);

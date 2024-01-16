@@ -20,6 +20,7 @@ import toast from "react-hot-toast";
 import { authValue } from "@/redux/global/globalSlice";
 import { useRouter } from "next/navigation";
 import { GoogleLogin } from "@react-oauth/google";
+import './style.scss'
 
 interface SignInData {
   email: string;
@@ -99,7 +100,11 @@ function LoginPage() {
             onChange={handleChange}
           />
           <p className="text-sm text-right">Forgot password ?</p>
-          <Button disabled={isLoading} type="submit" className="my-5">Login</Button>
+          {/* <Button disabled={isLoading} type="submit" className="my-5">Login</Button> */}
+          <button disabled={isLoading} className="kave-btn" type="submit">
+            <span className="kave-line"></span>
+            Login
+          </button>
 
           <div className="flex gap-3 items-center justify-center text-white/60">
             <div className="w-[100px] border"></div>

@@ -1,64 +1,31 @@
 [
     {
-        "id": 1,
-        "name": "adasvg",
-        "likes": 123,
-        "dislikes": 124,
-        "description": "sagjhvjhv jhavfjv h  wfhubn w ",
-        "platform": [
-                "web","android","windows"
-        ],
-        "age rating": "12+",
-        "genre":[ "2D","CG","Card-game","shooeter"],
-        "is_free": false,
-        "currency": [
-            {
-                "logo": "url",
-                "amount": 748.55,
-                "color": "#af7de6"
-            }
-        ],
-        "socials": [
-            {
-                "network": "discord",
-                "url": "url"
+        "_id":"id",
+        "likes":"likes",
+        "shares":"shares",
+        "text":"text",
+        "faction": {
+            "name":"name",
+            "image":"image_url"
             },
-            {
-                "network": "x",
-                "url": "url"
+        "user": {
+            "name":"name",
+            "image":"image_url",
+            "email":"email"
             },
-            {
-                "network": "youtube",
-                "url": "url"
-            }
-        ],
-        "stats": [
-            {
-                "userbase": [
-                    {
-                        "date": "12-28-2023",
-                        "till-date": 3550,
-                        "on-month": 758
-                    },
-                    {
-                        "date": "9-1-2024",
-                        "till-date": 7008,
-                        "on-month": 754
-                    }
-                ],
-                "activity": [
-                    {
-                        "date": "10-19-2023",
-                        "players": 545,
-                        "avg-time": 4639
-                    },
-                    {
-                        "date": "12-2-2023",
-                        "players": 926,
-                        "avg-time": 18738
-                    }
-                ]
-            }
-        ]
+        "media":{
+            "type":"image",
+            "url":"image_url"
+        },
+        "comments":{
+            "id":"id",
+            "message":"text",
+            "likes":"likes",
+            "user": {
+                "name":"name",
+                "image":"image_url",
+                "email":"email"
+                }
+        }    
     }
 ]

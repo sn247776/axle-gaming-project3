@@ -33,7 +33,7 @@ async function Games({searchParams}:any) {
                 <div className=' absolute left-0 bottom-5 z-10 h-[50%] w-[90%] bg-gradient-to-t from-white to-transparent'/>
                 
             <div
-             style={{WebkitClipPath:"polygon(88% 61%, 87% 0, 95% 0, 100% 5%, 100% 92%, 92% 100%, 5% 100%, 0 95%, 0 61%)"}}
+             style={{WebkitClipPath:"polygon(88% 61%, 87% 0, 95% 0, 100% 5%, 100% 92%, 92% 100%, 5% 100%, -1% 95%, -1% 61%)"}}
              className=' translate-x-0 bottom-0 left-0 right-auto w-full h-[90%] bg-[#171621] absolute z-20'>
              <div className='absolute bottom-0 h-[39%] w-full left-0 pl-2 pr-4 flex flex-col justify-evenly'>
               <div className=' flex w-full justify-between'>
