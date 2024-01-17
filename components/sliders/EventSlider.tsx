@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import events from "../../dummy/events.json";
 import { FaRegUser } from "react-icons/fa";
 import { Swiper as swiper } from "swiper";
+import axios from "axios";
 
 type Props = {};
 
@@ -17,6 +18,21 @@ const EventSlider = (props: Props) => {
   const [swiperIns, setSwiperIns] = useState<swiper | null>();
   const currDate = Date.now();
   
+  const [eventData, setEventData]:any = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://kind-pear-puffer-tie.cyclic.cloud/api/events/getAll');
+        setEventData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   return (
     <div>
@@ -42,57 +58,57 @@ const EventSlider = (props: Props) => {
           swiperIns?.update();
         }}
       >
-        {events.map((event, index) => (
+       {eventData && eventData.map((event: any, index: number) => (
           <SwiperSlide key={index}>
             {({ isActive }) => (
-              <div className=" w-[17rem] h-[17rem] items-center justify-center flex select-none">
+              <div className="w-[17rem] h-[17rem] items-center justify-center flex select-none">
                 <img
                   style={{
                     WebkitClipPath: `polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`,
                   }}
                   alt={event.name}
-                  src={event.faction}
-                  className=" absolute -left-[0%] -top-[0%] w-[3.4rem] h-[3.4rem] z-10"
+                  src={event.logo}
+                  className="absolute -left-[0%] -top-[0%] w-[3.4rem] h-[3.4rem] z-10"
                 />
                 <div
                   style={{
                     WebkitClipPath: `polygon(22.5% 4%, 14.5% 0, 100% 0, 100% 90%, 87% 100%, 0 100%, 0 17.5%, 10.1% 22.4%, 22.5% 16%)`,
                   }}
-                  className={` bg-[#0e0d118c]  w-full h-full  backdrop-blur-md `}
+                  className={`bg-[#0e0d118c] w-full h-full backdrop-blur-md`}
                 >
                   <img
-                    src={event.image}
+                    src={event.poster}
                     alt={event.name}
-                    className={` w-full h-[65%]`}
+                    className={`w-full h-[65%]`}
                   />
                   <div
-                    className={` pl-2 py-1 w-[90%] h-[35%] flex flex-col justify-between `}
+                    className={`pl-2 py-1 w-[90%] h-[35%] flex flex-col justify-between`}
                   >
-                    <div className=" font-bold line-clamp-2 text-[.9rem]">
+                    <div className="font-bold line-clamp-2 text-[.9rem]">
                       {event.name}
                     </div>
-                    <div className=" flex flex-col w-full  ">
+                    <div className="flex flex-col w-full">
                       {event.subscription_only && (
                         <div
                           style={{
                             borderImage:
                               "linear-gradient(0.25turn,#c084fc, rgb(255, 115, 0)) 1",
                           }}
-                          className="border border-slate-500 text-transparent text-[.6rem] px-1 size-fit bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text  justify-center items-center flex"
+                          className="border border-slate-500 text-transparent text-[.6rem] px-1 size-fit bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text justify-center items-center flex"
                         >
                           Subscribers only
                         </div>
                       )}
-                      <div className=" flex justify-between">
-                        <div className=" font-thin text-[#969696]">
+                      <div className="flex justify-between">
+                        <div className="font-thin text-[#969696]">
                           {Math.ceil(
                             Math.abs(
-                              new Date(event.end_date).getTime() - currDate
+                              new Date(event.endDate).getTime() - currDate
                             ) / 86400000
                           )}{" "}
                           days left
                         </div>
-                        <div className=" flex  text-[.8rem] items-center gap-1">
+                        <div className="flex text-[.8rem] items-center gap-1">
                           <FaRegUser
                             color={"rgb(255, 115, 100)"}
                             size={".8rem"}

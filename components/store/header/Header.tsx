@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { authValue, isAuth } from "@/redux/global/globalSlice";
+import { isAuth } from "@/redux/global/globalSlice";
 import Link from "next/link";
 import React from "react";
 import {  useSelector } from "react-redux";
