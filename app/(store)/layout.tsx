@@ -1,4 +1,4 @@
-import StoreBar from "@/components/store/StoreBar";
+import StoreBar from "@/components/store/storeBar/StoreBar";
 import Header from "@/components/store/header/Header";
 import UserBar from "@/components/store/userbar/UserBar";
 import './scrollbar.scss'
