@@ -22,6 +22,7 @@ async function Games({searchParams}:any) {
     <div className=' grid grid-cols-3 gap-y-10 pt-5 gap-x-4'>
     {gamesData.games.map((game: any, index: number) => (
           <Link
+          key={game._id}
                 href={`/games/${game.slug}`}
                className=' relative w-[15rem] h-[18rem] overflow-hidden p-0'>
                 <img

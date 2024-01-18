@@ -57,7 +57,7 @@ async function GamePage({ params }: { params: IParams }) {
               </div>
               <div className=" flex flex-row flex-wrap gap-2 w-full">
                 {[1,2,3,4,5].map((index)=>(
-                <div className={` bg-[#3c938d] rounded-xl px-1 text-[.8rem]  `}>
+                <div className={` bg-[#3c938d] rounded-xl px-1 text-[.8rem]  `} key={index}>
                   genre{`[${index}]`}
                 </div>))}
               </div>
