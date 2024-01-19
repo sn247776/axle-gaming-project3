@@ -5,17 +5,19 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import DummyData from "@/dummy/DummyData";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import "./styles/GamesSlider.scss"
+import "./styles/HomeSlider.scss"
 import {Swiper as swiper} from "swiper";
+
 // import swiper from "swiper";
 
-export default function GamesSlider() {
+export default function GamesSlider({slideData}:any) {
   const swiperRef: any = useRef(null);
   const paginationRef:any = useRef(null);
+
+
   const [swiperIns,setSwiperIns] = useState<swiper | null >();
   const paginationStyle:any = {
     '--swiper-pagination-color': '#6D28D9',
@@ -36,8 +38,10 @@ export default function GamesSlider() {
     console.log(swiperRef)
     // swiperRef.pagination.update()
   },[swiperRef])
+
+  console.log(slideData)
   return (
-    <div className="relative ">
+    <div className="relative w-full ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -47,14 +51,14 @@ export default function GamesSlider() {
         }}
         onSwiper={async (swiper) => {
           setSwiperIns(swiper);
-          // swiperRef.current = swiper
+          swiperRef.current = swiper
           // if (swiper){
           //   // swiper.navigation.update()
           //   swiper.pagination.init()
           // swiper.pagination.update()}
           
         }}
-        className="game-slider-main"
+        className="home-slider-main"
         pagination={{
           el: paginationRef.current,
           clickable: true,
@@ -66,20 +70,14 @@ export default function GamesSlider() {
         }}
         
       >
-        {DummyData.map((slide, index) => (
-          <SwiperSlide className="game-slider" key={slide._id}>
-            <div className="game-slide-text">
-              <h2 className="text-6xl font-bold">{slide.title}</h2>
-              <p>{slide.description}</p>
-              <div>
-                <Button className="text-base px-5 py-3">PLAY NOW</Button>
-              </div>
-            </div>
-            <img src={slide.poster} alt="slide" />
-          </SwiperSlide>
-        ))}
+ {slideData &&
+          slideData.map((slide: any, index: any) => (
+              <SwiperSlide className="home-slider" key={slide._id}>
+                <img src={slide.url} alt={`Slide ${index}`} />
+              </SwiperSlide>
+           ))}
       </Swiper>
-      <div className="game-slider-pagination">
+      <div className="home-slider-pagination">
       <div className="bg-white/25 backdrop-blur-sm flex gap-2 items-center p-1 rounded-full">
         <div onClick={handlePrev} className="bg-primary/40 rounded-full p-1 hover:bg-primary cursor-pointer duration-100">
           <ChevronLeft />

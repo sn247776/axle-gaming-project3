@@ -15,7 +15,7 @@ async function Games({searchParams}:any) {
     })
   
     const gamesData: any = await res.json()
-    console.log(gamesData)
+
     
   return (
     <div>
