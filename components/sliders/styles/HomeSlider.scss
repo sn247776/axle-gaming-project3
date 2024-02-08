@@ -37,3 +37,20 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.card{
+
+  span{
+      z-index: 50;
+      position: absolute;
+      width: 25px;
+      height: 5px;
+      background-color: #008cff;
+      transform: rotate(-45deg);
+      // border: #008cff 0.08em solid;
+      // border-radius: 0.25em;
+      bottom: 5px;
+      right: -5px;
+      clip-path: polygon(19% 100%, 75% 100%, 100% 0, 0 0);
+  }
+}

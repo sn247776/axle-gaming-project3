@@ -33,7 +33,7 @@ const GlobalFeed = (props: Props) => {
   const { feeds } = feedData;
 
   return (
-    <div className={`w-full h-fit flex flex-col justify-center items-center gap-5 py-5 bg-slate-500`}>
+    <div className={`w-full h-fit flex flex-col justify-center items-center gap-5 py-5 `}>
       {feeds.map((feed: any, index: number) => (
         <div key={index} className={`w-[35rem] h-fit min-h-[20rem] relative`}>
           <img
@@ -44,7 +44,7 @@ const GlobalFeed = (props: Props) => {
           />
           <div className={`w-full h-full flex flex-col items-center justify-center`}>
             <div
-              style={{ WebkitClipPath: `polygon(10% 73%, 10% 18.5%, 6.5% 0, 100% 0%, 100% 110%, 0 110%, 0% 80%, 4.5% 100%)` }}
+              style={{ WebkitClipPath: `polygon(10% 73%, 10% 18.5%, 6.5% 0, 100% 0%, 100% 110%, 0 110%, 0% 78%, 4.55% 100%)` }}
               className={`bg-[#0f0e17] pl-[4.5rem] w-full h-[3.35rem]`}
             >
               <div>{feed.author}</div>

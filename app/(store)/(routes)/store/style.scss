@@ -1,0 +1,12 @@
+.st{
+    &::before{
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        height: 5px;
+        width: 25px;
+        background-color: #fff;
+        clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    }
+}

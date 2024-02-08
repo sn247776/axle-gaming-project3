@@ -82,10 +82,10 @@
 
 .indicator {
     position: absolute;
-    left: 24px;
+    left: 110%;
     top: 0;
     bottom: 0;
-    width: 0px;
+    width: 1px;
     height: 0px;
     background-color: #117cff;
     z-index: -1;
@@ -96,48 +96,58 @@
 
 #a1:has(.active-bar-link)~.indicator {
     top: 45px;
-    width: 10px;
+    width: 2px;
     height: 50px;
     transform: translateX(-4px);
-    box-shadow:
-                0 0 20px #4c9dff,
-                0 0 20px #4c9dff,
-                0 -20px 20px #4c9dff,
-                0 20px 20px #4c9dff;
+    // box-shadow:
+    //             0 0 20px #4c9dff,
+    //             0 0 20px #4c9dff,
+    //             0 -20px 20px #4c9dff,
+    //             0 20px 20px #4c9dff;
 }
 
 #a2:has(.active-bar-link)~.indicator {
     top: 159px;
-    width: 10px;
+    width: 2px;
     height: 50px;
     transform: translateX(-4px);
-    box-shadow:
-                0 0 20px #4c9dff,
-                0 0 20px #4c9dff,
-                0 -20px 20px #4c9dff,
-                0 20px 20px #4c9dff;
+    // box-shadow:
+    //             0 0 20px #4c9dff,
+    //             0 0 20px #4c9dff,
+    //             0 -20px 20px #4c9dff,
+    //             0 20px 20px #4c9dff;
 }
 
 #a3:has(.active-bar-link)~.indicator {
-    top: 280px;
-    width: 10px;
+    top: 273px;
+    width: 2px;
     height: 50px;
     transform: translateX(-4px);
-    box-shadow:
-                0 0 20px #4c9dff,
-                0 0 20px #4c9dff,
-                0 -20px 20px #4c9dff,
-                0 20px 20px #4c9dff;
+    // box-shadow:
+    //             0 0 20px #4c9dff,
+    //             0 0 20px #4c9dff,
+    //             0 -20px 20px #4c9dff,
+    //             0 20px 20px #4c9dff;
 }
 
 #a4:has(.active-bar-link)~.indicator {
-    top: 395px;
-    width: 10px;
+    top: 387px;
+    width: 2px;
     height: 50px;
     transform: translateX(-4px);
-    box-shadow:
-                0 0 20px #4c9dff,
-                0 0 20px #4c9dff,
-                0 -20px 20px #4c9dff,
-                0 20px 20px #4c9dff;
+    // box-shadow:
+    //             0 0 20px #4c9dff,
+    //             0 0 20px #4c9dff,
+    //             0 -20px 20px #4c9dff,
+    //             0 20px 20px #4c9dff;
+}
+
+@keyframes move {
+    0%{
+        width: 1px;
+    } 
+    100%{
+        width: 2px;
+        
+    }
 }

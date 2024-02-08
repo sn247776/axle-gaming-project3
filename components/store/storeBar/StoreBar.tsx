@@ -39,10 +39,10 @@ function StoreBar() {
       {routes.map((route,index) => (
         <Link
           id={`a${index+1}`}
-          style={{ WebkitClipPath:'polygon(21% 3%, 53% 0, 100% 19%, 100% 90%, 61% 100%, 32% 95%, 0 77%, 0 15%)'}}
+          style={{ WebkitClipPath:'polygon(35% 0, 100% 20%, 100% 90%, 65% 100%, 0 80%, 0 10%)'}}
           key={route.href}
           href={route.href}
-          className={`flex mt-[.5rem] items-center justify-center flex-col flex-1 h-[7rem] w-[3rem] mb-1 bg-secondary/50 backdrop-blur-sm `}
+          className={`flex mt-[.1rem] items-center justify-center flex-col flex-1 h-[7rem] w-[2.8rem] bg-secondary/50 backdrop-blur-sm `}
         >
           
           

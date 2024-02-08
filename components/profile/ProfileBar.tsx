@@ -10,8 +10,8 @@ import ExpBar from "@/utilities/expBar/expBar";
 function ProfileBar({ProfileData}:any) {
   console.log(ProfileData)
   return (
-    <div className="w-[30vw] flex flex-col gap-6 sticky top-[70px]" 
-    style={{maxHeight:"calc(100vh - 90px)"}}
+    <div className="w-[40vw] flex flex-col gap-2 sticky top-[5px] " 
+    style={{height:"calc(100vh - 70px)"}}
     >
       <div className="bg-secondary/50 flex flex-col items-center py-4 px-5">
 

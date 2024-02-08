@@ -10,10 +10,10 @@ const ProfileLayout = async ({ children }: { children: React.ReactNode }) => {
         <Header />
       </div>
 
-      <div className=" flex w-full h-full  ">
+      <div style={{height:"calc(100vh - 64px)"}} className=" flex w-full h-full overflow-hidden  ">
         <StoreBar />
 
-               <div className=" z-0  w-[100%] flex flex-col overflow-x-hidden overflow-y-scroll px-2 ">
+               <div className=" z-0  w-[100%] h-screen flex flex-col overflow-y-scroll px-2 ">
                 <main className="container">
                 {children}
                 </main>

@@ -30,7 +30,7 @@
   }
  
   .dark {
-    --background: 224 0% 0%;
+    --background: 258, 28%, 9%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
@@ -60,14 +60,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* background: #15111e; */
     background-image: 
-    radial-gradient(farthest-side at top left, rgba(70, 50, 187, 0.5) 0, transparent 50%),
-    radial-gradient(farthest-side at top center, rgba(58, 44, 141, 0.5) 0, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(88, 40, 117, 0.5) 0, transparent 50%),
-    radial-gradient(ellipse at 0% 50%, rgba(63, 35, 88, 0.5) 0, transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(46, 21, 61, 0.5) 0, transparent 50%),
-    radial-gradient(farthest-side at bottom center , rgba(107, 26, 80, 0.5) 0, transparent 50%),
-    radial-gradient(farthest-side at bottom right, rgba(107, 26, 54, 0.5) 0, transparent 50%); 
+    radial-gradient(farthest-side at top left, rgba(39, 27, 105, 0.5) 0, transparent 50%),
+    /* radial-gradient(farthest-side at top center, rgba(43, 33, 104, 0.5) 0, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(60, 27, 80, 0.5) 0, transparent 50%),
+    radial-gradient(ellipse at 0% 50%, rgba(36, 20, 50, 0.5) 0, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(24, 11, 32, 0.5) 0, transparent 50%),
+    radial-gradient(farthest-side at bottom center , rgba(75, 18, 56, 0.5) 0, transparent 50%), */
+    radial-gradient(farthest-side at bottom right, rgba(72, 18, 37, 0.5) 0, transparent 50%); 
     background-repeat: no-repeat;
     background-attachment: fixed  ;
   }

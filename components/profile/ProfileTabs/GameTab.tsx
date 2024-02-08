@@ -2,7 +2,7 @@ import React from 'react'
 
 function GameTab() {
   return (
-    <div className=' flex  justify-center'>
+    <div className=' flex  justify-center z-0'>
             <div className=' grid grid-cols-2 pt-5 gap-10'>
       {
         games.map((game,index)=>(

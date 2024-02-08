@@ -30,9 +30,9 @@ function ProfilePage() {
   return (
     <div>
       <div className="flex gap-5 relative ">
-        <div className=" ">
+        {/* <div className=" bg-orange-500  "> */}
           <ProfileBar ProfileData={Profile} />
-        </div>
+        {/* </div> */}
 
         <div className=" w-full relative ">
           <div className="profile-banner relative axle-cut-top ">
@@ -43,7 +43,7 @@ function ProfilePage() {
             />
           </div>
           <div>
-            <div className="sticky top-[70px] mt-[-38px]">
+            <div className="sticky top-[70px] mt-[-38px] z-[25]">
               <div
                 className="flex gap-0 font-medium text-white select-none w-fit px-5  pr-10 bg-gradient-to-r from-black to-transparent"
                 // style={{ clipPath: "polygon(0 0, 90% 0, 100% 100%, 100% 100%, 0 100%)" }}

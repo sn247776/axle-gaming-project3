@@ -55,10 +55,10 @@ export default function HomeSlider() {
     // swiperRef.pagination.update()
   },[swiperRef])
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full ">  
       <Swiper
         spaceBetween={30}
-        centeredSlides={true}
+        // centeredSlides={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
